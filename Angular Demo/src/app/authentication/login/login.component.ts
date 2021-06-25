@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
     }
     // social auth service provided by angularx to signin using social media.
     this.socialAuthService.signIn(name);
+    localStorage.setItem('login', JSON.stringify(true));
   }
   /**
    * @author om kanada
@@ -57,11 +58,12 @@ export class LoginComponent implements OnInit {
         // check whether entered user name and password is correct or not.
         const index = userList.findIndex(x => x.userName === details.userName && x.password === details.password);
         if (index > -1) {
+          localStorage.setItem('login', JSON.stringify(true));
           this.adduserDetails(userList[index]);
         } else {
           window.alert('UserName Or Password is Incorrect.');
         }
-      } else { 
+      } else {
         window.alert('There is no user registered.Please register!!');
       }
     }
@@ -84,7 +86,10 @@ export class LoginComponent implements OnInit {
     this.initLoginForm();
     // for get user details after login from social media. 
     this.socialAuthService.authState.subscribe((user: SocialUser) => {
-      this.adduserDetails(user);
+      const login = JSON.parse(localStorage.getItem('login'));
+      if (login) {
+        this.adduserDetails(user);
+      }
     });
   }
 

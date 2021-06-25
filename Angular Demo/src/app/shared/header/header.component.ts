@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
       this.socialAuthService.signOut();
     }
     localStorage.removeItem('userDetails');
+    localStorage.setItem('login', JSON.stringify(false));
     this.router.navigate(['login']);
   }
 
