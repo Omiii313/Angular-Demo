@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form [formGroup]="loginForm" class="box" (keyup.enter)="login()">
+                    <h4>Login</h4>
+                    <p class="text-muted">Please enter your login and password!</p>
+                    <div >
+                        <input type="text" class="form-control" id="userName" placeholder="User Name"
+                            formControlName="userName"
+                            [ngClass]="{'is-invalid': (loginForm.controls.userName.touched||submitted) && !loginForm.value.userName }">
+                    </div>
+                    <div class="mt-2 mb-2">
+                        <input type="password" class="form-control" id="password" placeholder="Password"
+                            formControlName="password"
+                            [ngClass]="{'is-invalid': (loginForm.controls.password.touched || submitted) && !loginForm.value.password }">
+                    </div>
+                    <button type="button" class="btn btn-outline-light m-2" (click)="login()">Login</button>
+                    <button type="button" class="btn btn-outline-light" routerLink="/register">Register</button>
+                    <div class="col-md-12 mt-2">
+                        <ul class="social-network social-circle">
+                            <li (click)="loginWithSocialMedia('facebook')"><a class="icoFacebook" title="Facebook"><i
+                                        class="fa fa-facebook-f"></i></a>
+                            </li>
+                            <li (click)="loginWithSocialMedia('google')"><a class="icoGoogle" title="Google +"><i
+                                        class="fa fa-google-plus"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="container" *ngIf="isLoggedin">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="box">
+                    <div class="row">
+                        <div class="col">
+                            <img src="{{socialUser.photoUrl}}" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p style="color: white;">{{socialUser.name}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p style="color: white;">{{socialUser.email}}</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-light" (click)="logOut()">Log Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

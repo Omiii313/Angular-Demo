@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form [formGroup]="registrationForm" class="box">
+                    <h4>Registration</h4>
+                    <div >
+                        <input type="text" class="form-control" id="firstName" placeholder="First Name"
+                            formControlName="firstName"
+                            [ngClass]="{'is-invalid': (registrationForm.controls.firstName.touched  || submitted)&& !registrationForm.value.firstName }">
+                    </div>
+                    <div class="mt-2">
+                        <input type="text" class="form-control" id="lastName" placeholder="lastName"
+                            formControlName="lastName"
+                            [ngClass]="{'is-invalid': (registrationForm.controls.lastName.touched || submitted) && !registrationForm.value.lastName }">
+                    </div>
+                    <div class="mt-2">
+                        <input type="text" class="form-control" id="userName" placeholder="User Name"
+                            formControlName="userName"
+                            [ngClass]="{'is-invalid': (registrationForm.controls.userName.touched || submitted) && !registrationForm.value.userName }">
+                    </div>
+                    <div class="mt-2">
+                        <input type="password" class="form-control" id="password" placeholder="Password"
+                            formControlName="password"
+                            [ngClass]="{'is-invalid': (registrationForm.controls.password.touched || submitted) && !registrationForm.value.password }">
+                    </div>
+                    <button type="button" class="btn btn-outline-light m-2" (click)="register()">Register</button>
+                    <button type="button" class="btn btn-outline-light " routerLink="/login"> Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

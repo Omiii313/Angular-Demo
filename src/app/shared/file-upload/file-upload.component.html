@@ -1,0 +1,32 @@
+
+
+<!-- Shareable short link of uoloaded file -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="box">
+                    <div class="text-center" *ngIf="!shortLink">
+                        <h5 class="white mb-4">Upload Image Here</h5>
+                        <input class="form-control" type="file" (change)="onChange($event)" accept="image/png, image/gif, image/jpeg">
+                        <button (click)="onUpload()" class="btn btn-outline-light m-3">Upload
+                        </button>
+                    </div>
+                    <div class="container text-center jumbotron" *ngIf="shortLink">
+                        <h5 class="white"> Visit Here</h5>
+                        <a href="{{shortLink}}">{{shortLink}}</a>
+                        <button (click)="shortLink = ''" class="btn btn-outline-light m-4">Back
+                        </button>
+                    </div>
+                    <div class="progress" *ngIf="!(imageProgress === 0 || imageProgress === 100) ">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="70"
+                        aria-valuemin="0" aria-valuemax="100" [style.width]="imageProgress + '%'">
+                          {{imageProgress}}
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

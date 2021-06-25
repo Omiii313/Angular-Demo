@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <form [formGroup]="createPostForm" class="box" (ngSubmit)="submit()">
+                    <h5 class="white">Create New Post</h5>
+                    <div >
+                        <textarea formControlName="title" id="title" placeholder="Title" type="text" class="form-control" [ngClass]="{'is-invalid': (f.title.touched|| submitted) && !createPostForm.value.title }">
+                        </textarea>
+                    </div>
+                    <div class="mt-2 mb-2">
+                        <textarea formControlName="body" id="Body" placeholder="Body" rows="5" type="text" class="form-control" [ngClass]="{'is-invalid': (f.body.touched|| submitted) && !createPostForm.value.body }">
+                        </textarea>
+                    </div>
+                    <button class="btn btn-outline-light m-2" type="submit">Submit</button>
+                    <button class="btn btn-outline-light" routerLink="/post/index">cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
